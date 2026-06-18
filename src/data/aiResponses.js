@@ -1,331 +1,302 @@
 /**
- * AI 聊天回复 Mock 数据
+ * AI 聊天回复数据
+ * 数据来源参考：FIFA 官方抽签结果（2025 年 12 月 5 日，华盛顿）
+ * 说明：分析与预测仅为示例展示，不等同于官方观点。
  */
+
+const SOURCE_NOTE =
+  '（数据基于 FIFA 官方 2026 世界杯抽签结果 · 2025 年 12 月更新 · 分析仅为示例展示）';
 
 const aiResponses = {
   greetings: [
-    '你好！我是你的世界杯 AI 助手，有什么想聊的吗？',
-    '嗨！欢迎来到 2026 世界杯！有什么想了解的吗？',
-    '你好球迷！准备好迎接全球最大的足球盛会了吗？',
+    `你好！我是你的世界杯 AI 助手，有什么想聊的吗？ ${SOURCE_NOTE}`,
+    `嗨！欢迎来到 2026 世界杯！有什么想了解的吗？ ${SOURCE_NOTE}`,
+    `你好球迷！准备好迎接 2026 美加墨世界杯了吗？ ${SOURCE_NOTE}`,
   ],
+
+  // 基于真实分组的重点对决
+  keyMatches: [
+    '🔥 揭幕战：墨西哥 vs 南非（2026 年 6 月 11 日，阿兹特克体育场）',
+    '🔥 小组焦点：C 组巴西 vs 摩洛哥（上届四强能否再次爆冷？）',
+    '🔥 小组焦点：I 组法国 vs 塞内加尔 + 挪威（超级死亡之组！）',
+    '🔥 半决赛潜在重演：L 组英格兰 vs 克罗地亚（2018 年半决赛重演）',
+    '🔥 决赛场地：大都会人寿体育场（纽约/新泽西），2026 年 7 月 19 日',
+  ],
+
+  groupSummary: {
+    A: ['墨西哥', '南非', '韩国', '捷克'],
+    B: ['加拿大', '波黑', '卡塔尔', '瑞士'],
+    C: ['巴西', '摩洛哥', '海地', '苏格兰'],
+    D: ['美国', '巴拉圭', '澳大利亚', '土耳其'],
+    E: ['德国', '库拉索', '科特迪瓦', '厄瓜多尔'],
+    F: ['荷兰', '日本', '欧洲附加赛 B 胜者', '突尼斯'],
+    G: ['比利时', '埃及', '伊朗', '新西兰'],
+    H: ['西班牙', '佛得角', '沙特阿拉伯', '乌拉圭'],
+    I: ['法国', '塞内加尔', '洲际附加赛胜者', '挪威'],
+    J: ['阿根廷', '阿尔及利亚', '奥地利', '约旦'],
+    K: ['葡萄牙', '洲际附加赛胜者', '乌兹别克斯坦', '哥伦比亚'],
+    L: ['英格兰', '克罗地亚', '加纳', '巴拿马'],
+  },
 
   match_preview: {
     '阿根廷 vs 法国': [
-      '这是 2022 年世界杯决赛的重演！阿根廷有梅西的领导，法国则拥有姆巴佩。这将是一场史诗级对决。',
-      '两队都是夺冠热门。阿根廷在梅西带领下战术更加成熟，而法国拥有最顶级的锋线球员。',
-      '历史战绩：两队在世界杯上交手 4 次，阿根廷 2 胜 1 平 1 负，法国在 2018 年 16 强赛 4-3 击败阿根廷。',
+      '2022 年世界杯决赛潜在重演！阿根廷由梅西领导，法国则由姆巴佩领衔。',
+      '两队都是夺冠热门。阿根廷 J 组面对阿尔及利亚 / 奥地利 / 约旦，出线压力不大；法国在 I 组死亡之组（塞内加尔 + 挪威）需要谨慎。',
+      `历史战绩：两队在世界杯上交手多次，最近一次是 2022 年决赛阿根廷点球 4-2 胜。 ${SOURCE_NOTE}`,
     ],
-    '巴西 vs 葡萄牙': [
-      '南美足球代表 vs 欧洲劲旅！巴西的技术足球对决葡萄牙的力量足球。',
-      'C 罗可能迎来最后一届世界杯，而巴西则希望在主场夺冠（虽然是在北美）。',
-      '葡萄牙拥有超级中场（B 费、B 席），巴西则拥有超级锋线（维尼修斯、理查利森）。',
+    '巴西 vs 摩洛哥': [
+      'C 组焦点战！五星巴西对上届四强摩洛哥，非洲劲旅能否再次爆冷？',
+      '巴西技术足球 vs 摩洛哥的快速反击。哈基米是摩洛哥最危险的武器。',
+      `比赛地点预计在北美（迈阿密 / 亚特兰大等主办城市之一）。 ${SOURCE_NOTE}`,
     ],
-    '墨西哥 vs 加拿大': [
-      '北美德比！两国都希望作为东道主表现出色。',
-      '墨西哥拥有更丰富的大赛经验，加拿大则是冉冉升起的新星。',
+    '英格兰 vs 克罗地亚': [
+      '2018 年半决赛重演！L 组两队同组，小组赛直接对话。',
+      '英格兰由贝林厄姆、萨卡、福登领衔；克罗地亚仍由莫德里奇带领黄金一代。',
+      `这是 2026 小组赛最令人期待的对决之一。 ${SOURCE_NOTE}`,
+    ],
+    '法国 vs 塞内加尔': [
+      'I 组超级死亡之组的焦点战！卫冕冠军法国 vs 非洲冠军塞内加尔。',
+      '马内 vs 姆巴佩 —— 非洲球队希望重演 2002 年塞内加尔首战爆冷法国的历史。',
+      `比赛预计在美国波士顿 / 纽约一带进行。 ${SOURCE_NOTE}`,
+    ],
+    '墨西哥 vs 韩国': [
+      'A 组东道主关键战！墨西哥坐镇阿兹特克体育场迎战韩国。',
+      '韩国由孙兴慜领衔，在亚洲区预选赛中表现强势。',
+      `东道主的主场优势 + 球迷氛围，将是墨西哥最有力的武器。 ${SOURCE_NOTE}`,
     ],
   },
 
   predictions: [
-    '根据数据模型分析，我预测阿根廷、法国、巴西、英格兰将进入半决赛。',
-    '从赔率和球队状态来看，巴西是本届世界杯夺冠的最大热门。',
-    '我预测本届金靴奖得主很可能是姆巴佩或维尼修斯，他们都有出色的进球效率。',
-    '黑马球队预测：摩洛哥、加拿大和丹麦都有可能在本届世界杯上创造惊喜。',
-    '数据显示，作为东道主之一的美国队在小组出线的概率约为 75%。',
+    '根据球队实力与分组分析，阿根廷、法国、巴西、英格兰是本届最有希望进入半决赛的球队。',
+    '从历史数据与阵容看，阿根廷拥有卫冕的机会。梅西的最后一届世界杯。',
+    '金靴奖预测：姆巴佩 / 哈兰德 / 维尼修斯 · 儒尼奥尔，他们都有出色的进球效率。',
+    '黑马预测：摩洛哥（上届四强）、克罗地亚（上届季军）、日本（亚洲代表）都有机会。',
+    '东道主优势：美国、墨西哥、加拿大三国联合主办，美国队在主场有较高出线概率。',
+    'I 组（法国、塞内加尔、挪威、附加赛胜者）是公认的死亡之组，最可能出现冷门。',
+    ` ${SOURCE_NOTE}`,
   ],
 
   trivia: [
-    '世界杯历史上进球最多的球员是德国的克洛泽，他在 2002-2014 年间共打进 16 球。',
-    '巴西是唯一一支参加了所有 22 届世界杯的球队，并且赢得了 5 次冠军。',
-    '2026 世界杯将首次由三个国家联合举办（美国、墨西哥、加拿大），也是世界杯首次扩军至 48 支球队。',
-    '世界杯历史上最快的进球是土耳其的哈坎·苏克在 2002 年对阵韩国的比赛中开场 11 秒打进的。',
-    '世界杯历史上最年轻的进球者是球王贝利，他在 1958 年瑞典世界杯上打进首球时只有 17 岁零 239 天。',
-    '世界杯历史上只有 8 个国家曾夺得冠军：巴西(5)、德国(4)、意大利(4)、阿根廷(3)、法国(2)、乌拉圭(2)、英格兰(1)、西班牙(1)。',
-    '2022 年卡塔尔世界杯是首次在阿拉伯国家举办的世界杯，也是梅西圆梦的一届。',
+    '世界杯历史进球最多的球员是德国的克洛泽（16 球）。',
+    '巴西是唯一一支参加了所有 22 届世界杯并获得 5 次冠军的球队。',
+    '2026 世界杯是世界杯首次由三个国家联合举办（美国、墨西哥、加拿大），也是首次扩军至 48 支球队。',
+    '世界杯历史最快进球是土耳其的哈坎·苏克在 2002 年对阵韩国的比赛中开场 11 秒打进。',
+    '最年轻进球者是贝利，他在 1958 年瑞典世界杯进球时只有 17 岁零 239 天。',
+    '只有 8 个国家曾夺得世界杯：巴西(5)、德国(4)、意大利(4)、阿根廷(3)、法国(2)、乌拉圭(2)、英格兰(1)、西班牙(1)。',
+    '2026 世界杯决赛日期为 7 月 19 日，在大都会人寿体育场（纽约/新泽西）进行。',
   ],
 
   rules: [
-    '2026 世界杯将有 48 支球队参赛，分为 12 个小组，每组 4 队。小组前两名和 8 个最好的小组第三名晋级 32 强。',
-    '小组赛采用积分制：胜 3 分，平 1 分，负 0 分。排名按积分、净胜球、进球数、相互战绩的顺序排列。',
-    '淘汰赛阶段：如果 90 分钟打平，则进行 30 分钟加时赛；如果仍然打平，则通过点球大战决出胜负。',
-    '世界杯比赛时长 90 分钟，上下半场各 45 分钟。伤停补时由主裁判根据比赛中断情况决定。',
-    '每队在比赛中可以替换 5 名球员，分 3 次机会使用（不包括中场休息）。另外还有一个脑震荡换人名额。',
-    '黄牌累计 2 张将在下一场比赛停赛。红牌则当场比赛罚下，并自动停赛一场，情节严重者可能追加停赛。',
-    '点球大战规则：每队各派 5 名球员轮流罚球，进球多者获胜。如果 5 轮后仍平，则进入突然死亡法，每轮各罚一球直至分出胜负。',
+    '2026 世界杯 48 队分 12 组，每组 4 队；每组前两名 + 8 支成绩最好的小组第三晋级 32 强淘汰赛。',
+    '小组赛积分制：胜 3 分，平 1 分，负 0 分；排名按积分→净胜球→进球数→相互战绩依次比较。',
+    '淘汰赛阶段：90 分钟打平则进行 30 分钟加时赛；若仍平则点球大战。',
+    '每场正式比赛允许替换 5 名球员（3 次机会，不含中场休息），另加 1 次脑震荡换人名额。',
+    '黄牌累计 2 张停赛 1 场；红牌当场罚下并自动停赛 1 场。',
+    '2026 世界杯共进行 104 场比赛，赛期从 2026 年 6 月 11 日至 7 月 19 日。',
+    ` ${SOURCE_NOTE}`,
   ],
 
+  hosts: [
+    '2026 世界杯由美国、墨西哥、加拿大联合主办。',
+    '共有 16 座主办城市：美国 11 座（纽约/新泽西、达拉斯、洛杉矶、迈阿密、亚特兰大、休斯顿、西雅图、旧金山湾区、波士顿、费城、堪萨斯城），墨西哥 3 座（墨西哥城、瓜达拉哈拉、蒙特雷），加拿大 2 座（多伦多、温哥华）。',
+    '揭幕战在墨西哥城阿兹特克体育场进行（2026-06-11，墨西哥 vs 南非）。',
+    '决赛在大都会人寿体育场（纽约/新泽西，2026-07-19）。',
+  ],
+
+  // 球队基础信息（基于官方分组）
   team_info: {
-    阿根廷:
-      '阿根廷是 2022 年世界杯冠军，拥有史上最伟大球员之一的梅西。球队以技术足球和坚韧的防守著称。核心球员包括梅西、阿尔瓦雷斯、德保罗和罗梅罗。',
-    法国:
-      '法国是 2018 年世界杯冠军，2022 年亚军。拥有姆巴佩、格列兹曼等顶级球员，以速度和力量著称。球队整体实力强大，是夺冠热门之一。',
-    巴西:
-      '巴西是 5 次世界杯冠军得主，足球王国。以技术足球、灵活的跑位和超级个人能力闻名。本届核心包括维尼修斯、罗德里戈和理查利森。',
-    英格兰:
-      '英格兰是 1966 年世界杯冠军。以现代足球风格和青训体系著称。核心球员包括凯恩、贝林厄姆、萨卡和福登。',
-    西班牙:
-      '西班牙是 2010 年世界杯冠军。以传控足球（Tiki-Taka）闻名。核心球员包括罗德里、莫拉塔和加维。',
-    德国:
-      '德国是 4 次世界杯冠军。以铁血防守和团队足球著称。核心球员包括穆西亚拉、基米希和格雷茨卡。',
-    葡萄牙:
-      '葡萄牙是欧洲劲旅，C 罗的祖国。以技术足球和中场控制著称。核心球员包括 C 罗、B 费和 B 席。',
-    荷兰:
-      '荷兰是全攻全守足球的代表。以攻势足球和出色的青训闻名。核心球员包括范戴克、加克波和德佩。',
-    墨西哥:
-      '墨西哥是传统中北美强队，16 强常客。以热情和技术足球著称。核心球员包括阿尔瓦雷斯、洛萨诺和希门尼斯。',
-    美国:
-      '美国作为东道主之一，是北美新兴足球力量。以年轻球员和快速发展的足球文化著称。核心球员包括普利西奇、麦肯尼和佩皮。',
-    加拿大:
-      '加拿大作为东道主之一，是北美足球新兴力量。以阿方索·戴维斯为核心，擅长快速反击。',
-    摩洛哥:
-      '摩洛哥是 2022 年世界杯四强，非洲足球代表。以坚韧防守和快速反击著称。核心球员包括哈基米、阿姆拉巴特和马兹拉维。',
+    阿根廷: 'J 组球队，2022 年世界杯冠军，由梅西领衔。核心球员包括梅西、阿尔瓦雷斯、德保罗、罗梅罗等。球队以技术足球和坚韧防守著称。',
+    法国: 'I 组球队，2018 年世界杯冠军 / 2022 年亚军，由姆巴佩、格列兹曼领衔。球队整体实力强大，被视为夺冠热门之一。',
+    巴西: 'C 组球队，5 次世界杯冠军，足球王国。以技术足球和灵活跑位著称，核心包括维尼修斯·儒尼奥尔、罗德里戈等。',
+    英格兰: 'L 组球队，1966 年世界杯冠军。以现代足球风格和青训体系著称，核心球员包括凯恩、贝林厄姆、萨卡、福登。',
+    西班牙: 'H 组球队，2010 年世界杯冠军。以传控足球闻名，核心球员包括罗德里、莫拉塔等。',
+    德国: 'E 组球队，4 次世界杯冠军。铁血防守 + 团队足球，核心球员包括穆西亚拉、基米希等。',
+    葡萄牙: 'K 组球队，C 罗有望迎来最后一届世界杯。核心球员包括 C 罗、B 费、B 席。',
+    荷兰: 'F 组球队，全攻全守代表。核心球员包括范戴克、加克波等。',
+    墨西哥: 'A 组东道主球队，世界杯常客。核心球员包括阿尔瓦雷斯、洛萨诺等，主场优势巨大。',
+    美国: 'D 组东道主球队，北美新兴力量。核心球员包括普利西奇、麦肯尼、佩皮。',
+    加拿大: 'B 组东道主球队，以阿方索·戴维斯为核心。2022 年后足球水平显著提升。',
+    摩洛哥: 'C 组球队，2022 年世界杯四强。由哈基米领衔，以反击和组织防守著称。',
+    克罗地亚: 'L 组球队，2018 亚军 / 2022 季军。由莫德里奇带领，大赛表现稳定。',
+    日本: 'F 组球队，亚洲代表，以青训体系和技术足球著称。核心包括久保建英、三笘薫。',
+    韩国: 'A 组球队，亚洲代表。由孙兴慜领衔，2022 年曾进入十六强。',
+    塞内加尔: 'I 组球队，非洲冠军。由马内、库利巴利领衔。',
+    挪威: 'I 组球队，由哈兰德、厄德高领衔的欧洲新兴力量。',
+    哥伦比亚: 'K 组球队，南美劲旅，由哈梅斯·罗德里格斯等领衔。',
+    乌拉圭: 'H 组球队，1930 / 1950 两届冠军，由巴尔韦德领衔。',
+    比利时: 'G 组球队，欧洲红魔，核心球员包括德布劳内、卢卡库。',
+    奥地利: 'J 组球队，由朗尼克执教，战术清晰的欧洲球队。',
+    土耳其: 'D 组球队，由恰尔汗奥卢领衔。',
+    埃及: 'G 组球队，由萨拉赫领衔的非洲代表。',
+    加纳: 'L 组球队，非洲传统强队。',
+    科特迪瓦: 'E 组球队，2023 年非洲杯冠军。',
+    突尼斯: 'F 组球队，北非劲旅。',
+    阿尔及利亚: 'J 组球队，北非足球代表。',
+    澳大利亚: 'D 组球队，亚洲区代表。',
+    沙特阿拉伯: 'H 组球队，2022 年曾爆冷击败阿根廷。',
+    伊朗: 'G 组球队，亚洲代表。',
+    约旦: 'J 组球队，首次参加世界杯。',
+    乌兹别克斯坦: 'K 组球队，中亚代表。',
+    瑞士: 'B 组球队，欧洲传统劲旅，点球大战不败。',
+    苏格兰: 'C 组球队，英伦代表。',
+    捷克: 'A 组球队，欧洲代表。',
+    波黑: 'B 组球队，欧洲代表。',
+    卡塔尔: 'B 组球队，上届东道主。',
+    南非: 'A 组球队，非洲代表。',
+    海地: 'C 组球队，加勒比代表。',
+    库拉索: 'E 组球队，加勒比代表（首次参加世界杯）。',
+    佛得角: 'H 组球队，非洲代表（首次参加世界杯）。',
+    巴拿马: 'L 组球队，中北美代表。',
+    新西兰: 'G 组球队，大洋洲代表。',
+    巴拉圭: 'D 组球队，南美代表。',
+    厄瓜多尔: 'E 组球队，南美代表。',
   },
 
-  player_insights: {
-    梅西:
-      '梅西是足球史上最伟大的球员之一，9 次金球奖得主。虽然年龄渐长，但他的传球、任意球和阅读比赛的能力仍然顶级。',
-    姆巴佩:
-      '姆巴佩是目前世界足坛最具潜力的年轻球员之一。速度和射门是他最大的武器。2022 世界杯金靴得主。',
-    C罗:
-      'C 罗是足球史上最伟大的射手之一，5 次金球奖得主。虽然年龄较大，但他的进球本能和职业精神依然无与伦比。',
-    维尼修斯:
-      '维尼修斯是巴西新一代球星代表。以闪电般的速度和盘带能力著称，是皇马的核心球员。',
-    哈兰德:
-      '哈兰德是挪威足球的超级新星。以强大的身体素质和惊人的进球效率著称，被视为未来金球奖的有力竞争者。',
-    贝林厄姆:
-      '贝林厄姆是英格兰最具天赋的年轻中场。以全能和跑动能力著称，已经成为皇家马德里的核心球员。',
-    穆西亚拉:
-      '穆西亚拉是德国足球的超级天才。以技术和创造力著称，被誉为德国足球的未来。',
-    罗德里:
-      '罗德里是西班牙的中场核心。以传球和防守能力著称，是曼城的关键球员。2024 年金球奖得主。',
+  // 赛事数据
+  stats: {
+    totalTeams: 48,
+    totalGroups: 12,
+    totalMatches: 104,
+    hostCountries: ['美国', '墨西哥', '加拿大'],
+    startDate: '2026-06-11',
+    finalDate: '2026-07-19',
+    finalVenue: '大都会人寿体育场（纽约/新泽西）',
+    hostCities: 16,
+    drawDate: '2025-12-05',
   },
-
-  tournament_facts: [
-    '2026 年世界杯将在 16 个场馆举办，分布于美国、墨西哥和加拿大三国。',
-    '决赛预计将在达拉斯的 AT&T 体育场（容量 8 万人）或墨西哥城的阿兹特克体育场（容量 8.75 万人）举行。',
-    '本届世界杯将有 104 场比赛，比 2022 年卡塔尔世界杯（64 场）增加了 40 场。',
-    '北美三国自动获得参赛资格，其余 45 个名额由各洲预选赛产生。',
-    '由于参赛球队增加到 48 支，本届世界杯被认为是历史上规模最大的一届。',
-  ],
-
-  fun_facts: [
-    '世界杯奖杯原名"雷米特杯"，以法国足协主席 Jules Rimet 的名字命名。',
-    '1970 年世界杯的用球"Telstar"是第一个采用黑白相间图案的足球，以提高电视转播效果。',
-    '世界杯历史上出现过著名的"马拉多纳上帝之手"和"世纪进球"，都是在同一场比赛（1986 年英格兰 vs 阿根廷）。',
-    '乌拉圭在 1930 年成为第一个世界杯冠军时，他们的球队平均身高只有 1.68 米，却是一支极具战斗力的球队。',
-    '世界杯历史上只有 1 位门将曾获得金球奖：德国的奥利弗·卡恩在 2002 年世界杯获得此项荣誉。',
-  ],
-
-  default_responses: [
-    '这是一个很好的问题！让我想想...关于这个话题，我的建议是关注球队的整体状态和战术风格。',
-    '感谢你的提问！世界杯充满了不确定性，这正是它的魅力所在。',
-    '我理解你的兴趣！作为 AI 助手，我会基于数据分析给出我的见解。',
-    '这个问题很有意思！让我为你提供一些相关信息。',
-    '好问题！让我从多个角度为你分析一下。',
-  ],
 };
 
+/**
+ * 根据用户输入智能匹配一个回复（前端 Mock AI）
+ */
+export function getSmartResponse(userMessage) {
+  if (!userMessage || typeof userMessage !== 'string') {
+    return '请输入你想了解的内容，例如"分组情况"、"赛程"、"热门球队"等。';
+  }
+
+  const msg = userMessage.trim();
+
+  // 问候语
+  if (/^(你好|您好|hello|hi|嗨|早|晚|\?|？)+$/i.test(msg) || msg.length <= 2) {
+    return aiResponses.greetings[Math.floor(Math.random() * aiResponses.greetings.length)];
+  }
+
+  // 分组
+  if (/分组|抽签|小组|有哪些队|有哪些球队/.test(msg)) {
+    const lines = Object.entries(aiResponses.groupSummary).map(
+      ([g, teams]) => `【${g} 组】 ${teams.join('、')}`
+    );
+    return `2026 世界杯 12 组完整分组：\n${lines.join('\n')}\n\n${SOURCE_NOTE}`;
+  }
+
+  // 赛程 / 时间 / 日期
+  if (/赛程|时间|何时|几号|日期|什么时候|揭幕战|决赛/.test(msg)) {
+    return [
+      `📅 赛程概要：\n`,
+      `· 揭幕战：2026-06-11，墨西哥 vs 南非（墨西哥城阿兹特克体育场）`,
+      `· 小组赛：2026-06-11 ~ 06-27`,
+      `· 1/16 决赛（新增）：06-28 ~ 07-03`,
+      `· 1/8 决赛：07-04 ~ 07-08`,
+      `· 1/4 决赛：07-10 ~ 07-12`,
+      `· 半决赛：07-15、07-16`,
+      `· 三四名决赛：07-19`,
+      `· 决赛：2026-07-19，大都会人寿体育场（纽约/新泽西）`,
+      `\n${SOURCE_NOTE}`,
+    ].join('\n');
+  }
+
+  // 主办城市 / 主办国
+  if (/主办|城市|在哪|哪里|host|venue|stadium/.test(msg)) {
+    return [
+      '🏟️ 2026 世界杯由美国、墨西哥、加拿大三国联合主办，共 16 座主办城市：',
+      '· 美国 11 座：纽约/新泽西、达拉斯、洛杉矶、迈阿密、亚特兰大、休斯顿、西雅图、旧金山湾区、波士顿、费城、堪萨斯城',
+      '· 墨西哥 3 座：墨西哥城、瓜达拉哈拉、蒙特雷',
+      '· 加拿大 2 座：多伦多、温哥华',
+      '',
+      `· 揭幕战：墨西哥城 · 阿兹特克体育场（2026-06-11）`,
+      `· 决赛：大都会人寿体育场（纽约/新泽西，2026-07-19）`,
+      '',
+      SOURCE_NOTE,
+    ].join('\n');
+  }
+
+  // 焦点战
+  if (/焦点|热门|重点|对打|对阵|焦点战/.test(msg)) {
+    return `🔥 小组赛焦点对决：\n${aiResponses.keyMatches.join('\n')}\n\n${SOURCE_NOTE}`;
+  }
+
+  // 预测
+  if (/预测|夺冠|冠军|谁会赢|winner|黑马/.test(msg)) {
+    return (
+      aiResponses.predictions[Math.floor(Math.random() * aiResponses.predictions.length)] ||
+      '暂无预测数据。'
+    );
+  }
+
+  // 规则
+  if (/规则|怎么比|晋级|淘汰|加时|点球|换人|黄牌|红牌/.test(msg)) {
+    return aiResponses.rules[Math.floor(Math.random() * aiResponses.rules.length)];
+  }
+
+  // 趣味历史
+  if (/历史|记录|进球|纪录|奇闻|trivia|趣闻/.test(msg)) {
+    return aiResponses.trivia[Math.floor(Math.random() * aiResponses.trivia.length)];
+  }
+
+  // 某个球队
+  const teamNames = Object.keys(aiResponses.team_info);
+  for (const name of teamNames) {
+    if (msg.includes(name)) {
+      return `【${name}】 ${aiResponses.team_info[name]} ${SOURCE_NOTE}`;
+    }
+  }
+
+  // 某个小组
+  const groupMatch = msg.match(/([A-L])组/i);
+  if (groupMatch) {
+    const g = groupMatch[1].toUpperCase();
+    if (aiResponses.groupSummary[g]) {
+      return `${g} 组：${aiResponses.groupSummary[g].join('、')} ${SOURCE_NOTE}`;
+    }
+  }
+
+  // 默认：展示功能提示
+  return [
+    '我可以帮你了解：',
+    '1️⃣ 世界杯分组情况 → 说"分组"或"有哪些球队"',
+    '2️⃣ 赛程与时间 → 说"赛程"或"决赛什么时候"',
+    '3️⃣ 焦点比赛 → 说"焦点战"或"热门比赛"',
+    '4️⃣ 球队介绍 → 直接输入球队名，如"阿根廷"',
+    '5️⃣ 预测分析 → 说"预测"或"夺冠热门"',
+    '6️⃣ 规则科普 → 说"规则"或"晋级方式"',
+    '7️⃣ 历史与趣味 → 说"历史"或"记录"',
+    '',
+    SOURCE_NOTE,
+  ].join('\n');
+}
+
 export function getRandomGreeting() {
-  return aiResponses.greetings[
-    Math.floor(Math.random() * aiResponses.greetings.length)
-  ];
+  return aiResponses.greetings[Math.floor(Math.random() * aiResponses.greetings.length)];
 }
 
-export function getResponseForMatch(homeTeam, awayTeam) {
-  const key = `${homeTeam} vs ${awayTeam}`;
-  if (aiResponses.match_preview[key]) {
-    return aiResponses.match_preview[key][
-      Math.floor(Math.random() * aiResponses.match_preview[key].length)
-    ];
-  }
-  return getRandomDefault();
+export function getKeyMatches() {
+  return aiResponses.keyMatches;
 }
 
-export function getRandomPrediction() {
-  return aiResponses.predictions[
-    Math.floor(Math.random() * aiResponses.predictions.length)
-  ];
+export function getGroupSummary() {
+  return aiResponses.groupSummary;
 }
 
-export function getRandomTrivia() {
-  return aiResponses.trivia[
-    Math.floor(Math.random() * aiResponses.trivia.length)
-  ];
+export function getStats() {
+  return aiResponses.stats;
 }
 
-export function getRandomRule() {
-  return aiResponses.rules[
-    Math.floor(Math.random() * aiResponses.rules.length)
-  ];
+export function getAllResponses() {
+  return aiResponses;
 }
 
-export function getTeamInfo(teamName) {
-  if (aiResponses.team_info[teamName]) {
-    return aiResponses.team_info[teamName];
-  }
-  return `${teamName} 是一支值得关注的球队。他们将在 2026 世界杯上为自己的目标而战。`;
-}
-
-export function getPlayerInsight(playerName) {
-  if (aiResponses.player_insights[playerName]) {
-    return aiResponses.player_insights[playerName];
-  }
-  return `${playerName} 是一位非常出色的球员，他在俱乐部和国家队都有着稳定的表现。`;
-}
-
-export function getRandomTournamentFact() {
-  return aiResponses.tournament_facts[
-    Math.floor(Math.random() * aiResponses.tournament_facts.length)
-  ];
-}
-
-export function getRandomFunFact() {
-  return aiResponses.fun_facts[
-    Math.floor(Math.random() * aiResponses.fun_facts.length)
-  ];
-}
-
-export function getRandomDefault() {
-  return aiResponses.default_responses[
-    Math.floor(Math.random() * aiResponses.default_responses.length)
-  ];
-}
-
-export function getSmartResponse(message) {
-  const msg = message.toLowerCase();
-
-  if (
-    msg.includes('阿根廷') ||
-    msg.includes('法国') ||
-    msg.includes('巴西') ||
-    msg.includes('英格兰') ||
-    msg.includes('西班牙') ||
-    msg.includes('德国') ||
-    msg.includes('葡萄牙') ||
-    msg.includes('荷兰') ||
-    msg.includes('墨西哥') ||
-    msg.includes('美国') ||
-    msg.includes('加拿大') ||
-    msg.includes('摩洛哥')
-  ) {
-    const teams = [
-      '阿根廷',
-      '法国',
-      '巴西',
-      '英格兰',
-      '西班牙',
-      '德国',
-      '葡萄牙',
-      '荷兰',
-      '墨西哥',
-      '美国',
-      '加拿大',
-      '摩洛哥',
-    ];
-    for (const team of teams) {
-      if (msg.includes(team.toLowerCase())) {
-        return getTeamInfo(team);
-      }
-    }
-  }
-
-  if (
-    msg.includes('梅西') ||
-    msg.includes('姆巴佩') ||
-    msg.includes('c罗') ||
-    msg.includes('c 罗') ||
-    msg.includes('罗纳尔多') ||
-    msg.includes('维尼修斯') ||
-    msg.includes('哈兰德') ||
-    msg.includes('贝林厄姆') ||
-    msg.includes('穆西亚拉') ||
-    msg.includes('罗德里')
-  ) {
-    const players = [
-      '梅西',
-      '姆巴佩',
-      'C罗',
-      '维尼修斯',
-      '哈兰德',
-      '贝林厄姆',
-      '穆西亚拉',
-      '罗德里',
-    ];
-    for (const player of players) {
-      if (msg.includes(player.toLowerCase())) {
-        return getPlayerInsight(player);
-      }
-    }
-  }
-
-  if (
-    msg.includes('预测') ||
-    msg.includes('谁会赢') ||
-    msg.includes('谁能赢') ||
-    msg.includes('冠军') ||
-    msg.includes('热门')
-  ) {
-    return getRandomPrediction();
-  }
-
-  if (
-    msg.includes('规则') ||
-    msg.includes('怎么算') ||
-    msg.includes('怎么踢') ||
-    msg.includes('积分') ||
-    msg.includes('晋级') ||
-    msg.includes('淘汰')
-  ) {
-    return getRandomRule();
-  }
-
-  if (
-    msg.includes('历史') ||
-    msg.includes('记录') ||
-    msg.includes('知识') ||
-    msg.includes('冷知识') ||
-    msg.includes('有趣')
-  ) {
-    return Math.random() > 0.5 ? getRandomTrivia() : getRandomFunFact();
-  }
-
-  if (msg.includes('场馆') || msg.includes('体育场') || msg.includes('城市')) {
-    return getRandomTournamentFact();
-  }
-
-  if (
-    msg.includes('你好') ||
-    msg.includes('hi') ||
-    msg.includes('hello') ||
-    msg.includes('嗨') ||
-    msg.includes('嘿')
-  ) {
-    return getRandomGreeting();
-  }
-
-  if (msg.includes('vs') || msg.includes('对') || msg.includes('对战')) {
-    const teams = ['阿根廷', '法国', '巴西', '英格兰', '西班牙', '德国'];
-    for (const t of teams) {
-      if (msg.includes(t.toLowerCase())) {
-        const otherTeam = teams.find((x) => x !== t && msg.includes(x.toLowerCase()));
-        if (otherTeam) {
-          return getResponseForMatch(t, otherTeam);
-        }
-      }
-    }
-    return getRandomDefault();
-  }
-
-  if (
-    msg.includes('谢谢') ||
-    msg.includes('感谢') ||
-    msg.includes('thanks') ||
-    msg.includes('thank you')
-  ) {
-    return '不客气！祝你观赛愉快！🎉';
-  }
-
-  return getRandomDefault();
-}
-
-export default aiResponses;
+export const DATA_SOURCE_INFO = {
+  source: 'FIFA 官方抽签结果（2025 年 12 月 5 日，华盛顿肯尼迪表演艺术中心）',
+  updatedDate: '2025 年 12 月',
+  note: '分析与预测内容为示例展示，不等同于官方观点。',
+};
