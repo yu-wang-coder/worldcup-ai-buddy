@@ -214,7 +214,16 @@ export function renderFooter() {
         <h3>关于项目</h3>
         <p>纯前端静态网站 Demo</p>
         <p>技术栈：HTML5 + CSS3 + ES6+</p>
-        <p>数据来源：Mock 数据 + 实时 API</p>
+        <p>数据来源：Mock 数据演示</p>
+      </div>
+      <div class="footer-section">
+        <h3>⚠️ 免责声明</h3>
+        <p style="color: #ef4444; font-size: 0.85rem; line-height: 1.6;">
+          本网站所有数据均为 <strong>Mock 模拟数据</strong>，仅供演示和学习使用，不构成任何投注建议。
+        </p>
+        <p style="color: #fbbf24; font-size: 0.8rem; margin-top: 0.5rem;">
+          请勿将本站数据用于真实博彩，所有赔率信息均为虚构。
+        </p>
       </div>
     </div>
     <div class="footer-bottom">

@@ -43,10 +43,10 @@ function renderOverview() {
   const container = document.getElementById('odds-overview');
 
   const cards = [
-    { icon: '📊', title: '覆盖平台数', value: '12+', desc: '主流博彩平台数据汇总' },
-    { icon: '📈', title: 'AI 胜率预测', value: '87%', desc: '基于历史数据和球员状态' },
-    { icon: '⚡', title: '数据更新频率', value: '实时', desc: '每分钟同步最新赔率' },
-    { icon: '⚠️', title: '热门比赛', value: '23 场', desc: '高关注度比赛跟踪中' },
+    { icon: '📊', title: '数据来源', value: 'Mock', desc: '⚠️ 仅供演示，不可用作投注' },
+    { icon: '📈', title: 'AI 胜率预测', value: '参考', desc: '⚠️ AI 模拟分析，非真实预测' },
+    { icon: '⚡', title: '数据更新', value: '模拟', desc: '⚠️ 模拟数据，非实时更新' },
+    { icon: '🎯', title: '热门比赛', value: '23 场', desc: '⚠️ 数据均为虚构' },
   ];
 
   container.innerHTML = cards.map((card) => `
@@ -195,12 +195,11 @@ async function renderTrendChart() {
           `;
         }).join('')}
       </div>
-      <div style="margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, #fef7ed 0%, #fef3c7 100%); border-radius: 12px; border-left: 4px solid #f97316;">
-        <div style="font-weight: 700; color: #78350f; margin-bottom: 0.5rem;">💡 AI 分析提示</div>
-        <p style="color: #78350f; font-size: 0.95rem; line-height: 1.6;">
-          赔率反映了市场对比赛结果的预期。赔率越低，意味着市场越倾向于该结果发生。
-          建议结合球队近期状态、球员伤病情况和历史交锋记录进行综合判断。
-          请注意：所有数据仅供参考，请理性看待。
+      <div style="margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, #fef2f2, #fee2e2); border-radius: 12px; border-left: 4px solid #ef4444;">
+        <div style="font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">⚠️ 重要提示</div>
+        <p style="color: #991b1b; font-size: 0.95rem; line-height: 1.6;">
+          本页面所有赔率数据均为 <strong>Mock 模拟数据</strong>，仅供学习演示用途，<strong>绝不构成任何投注建议</strong>。
+          请勿将本站数据用于真实博彩行为。博彩有风险，请理性对待。
         </p>
       </div>
     `;
