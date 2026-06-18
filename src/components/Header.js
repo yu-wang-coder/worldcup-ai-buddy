@@ -214,15 +214,17 @@ export function renderFooter() {
         <h3>关于项目</h3>
         <p>纯前端静态网站 Demo</p>
         <p>技术栈：HTML5 + CSS3 + ES6+</p>
-        <p>数据来源：Mock 数据演示</p>
+        <p>数据来源：FIFA 官方抽签结果</p>
+        <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.3rem;">更新日期：2025 年 12 月</p>
       </div>
       <div class="footer-section">
         <h3>⚠️ 免责声明</h3>
         <p style="color: #ef4444; font-size: 0.85rem; line-height: 1.6;">
-          本网站所有数据均为 <strong>Mock 模拟数据</strong>，仅供演示和学习使用，不构成任何投注建议。
+          本网站<strong>分组 / 赛程框架数据基于 FIFA 官方 2026 世界杯抽签结果</strong>，
+          具体比分、赔率、出场等演示数据仅为示例展示，仅供演示和学习使用，不构成任何投注建议。
         </p>
         <p style="color: #fbbf24; font-size: 0.8rem; margin-top: 0.5rem;">
-          请勿将本站数据用于真实博彩，所有赔率信息均为虚构。
+          请勿将本站数据用于真实博彩，所有赔率信息均为示例展示。
         </p>
       </div>
     </div>
