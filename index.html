@@ -14,10 +14,21 @@
   <nav class="header" id="app-header"></nav>
 
   <section class="home-hero">
+    <div class="home-hero__decor home-hero__decor--left">⚽</div>
+    <div class="home-hero__decor home-hero__decor--right">🏆</div>
+    <div class="home-hero__decor home-hero__decor--ball1">⚽</div>
+    <div class="home-hero__decor home-hero__decor--ball2">🏆</div>
+    <div class="home-hero__decor home-hero__decor--ball3">🎯</div>
+
     <div class="home-hero-content">
+      <div class="home-hero__badge">
+        <span class="home-hero__badge-dot"></span>
+        🇺🇸 🇲🇽 🇨🇦 2026 世界杯 · 智能观赛助手
+      </div>
+
       <h1 class="home-hero__title">2026 世界杯智能观赛助手</h1>
       <p class="home-hero__subtitle">
-        你的 AI 看球搭子 · 实时赛事信息 · 智能赔率分析 · 精彩瞬间回顾
+        你的专属 AI 看球搭子 · 实时赛事信息 · 智能赔率分析 · 精彩瞬间回顾
       </p>
 
       <div class="home-hero__countdown" id="countdown">
@@ -41,14 +52,16 @@
 
       <div class="home-hero__cta">
         <button class="btn btn-primary" id="cta-prediction" type="button">
-          查看预测
+          🤖 查看 AI 预测
         </button>
-        <button class="btn btn-secondary" id="cta-chat" type="button" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3);">
-          开始 AI 聊天
+        <button class="btn btn-secondary" id="cta-chat" type="button">
+          💬 开始 AI 聊天
         </button>
       </div>
 
-      <div class="home-hero__disclaimer" style="margin-top: 2rem; margin-left: auto; margin-right: auto; padding: 0.75rem 1rem; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; font-size: 0.85rem; color: rgba(255,255,255,0.9); max-width: 600px; text-align: center;">
+      <div class="home-hero__stats" id="hero-stats"></div>
+
+      <div class="home-hero__disclaimer">
         ⚠️ <strong>免责声明：</strong>本页数据为 <strong>Mock 模拟数据</strong>，仅供演示学习，不构成任何投注建议
       </div>
     </div>
@@ -65,6 +78,10 @@
         <p class="feature-card__desc">
           全面的比赛信息、球队数据、球员资料和历史交锋记录，让你赛前知己知彼。
         </p>
+        <div class="feature-card__stats">
+          <span>🗓️ 64 场比赛</span>
+          <span>🏅 48 支球队</span>
+        </div>
       </a>
 
       <a href="chat.html" class="feature-card" style="text-decoration: none; color: inherit;">
@@ -73,6 +90,10 @@
         <p class="feature-card__desc">
           你的专属看球搭子，可以陪聊、预测、回答足球知识问题，让观赛不再孤单。
         </p>
+        <div class="feature-card__stats">
+          <span>💡 智能问答</span>
+          <span>🎯 比赛分析</span>
+        </div>
       </a>
 
       <a href="odds.html" class="feature-card" style="text-decoration: none; color: inherit;">
@@ -81,6 +102,10 @@
         <p class="feature-card__desc">
           多平台赔率对比、历史走势图、AI 概率预测，帮助你做出更理性的判断。
         </p>
+        <div class="feature-card__stats">
+          <span>📈 趋势图</span>
+          <span>🎲 概率预测</span>
+        </div>
       </a>
 
       <a href="highlights.html" class="feature-card" style="text-decoration: none; color: inherit;">
@@ -89,6 +114,10 @@
         <p class="feature-card__desc">
           回顾世界杯历史上的经典进球和高光时刻，感受足球的魅力与激情。
         </p>
+        <div class="feature-card__stats">
+          <span>⚡ 经典进球</span>
+          <span>🎬 冠军时刻</span>
+        </div>
       </a>
 
       <a href="cartoon.html" class="feature-card" style="text-decoration: none; color: inherit;">
@@ -97,6 +126,10 @@
         <p class="feature-card__desc">
           卡通化的足球知识科普，从规则到球星，让新手也能轻松看懂世界杯。
         </p>
+        <div class="feature-card__stats">
+          <span>📚 规则解析</span>
+          <span>⭐ 球星介绍</span>
+        </div>
       </a>
 
       <a href="odds.html" class="feature-card" style="text-decoration: none; color: inherit;">
@@ -105,6 +138,10 @@
         <p class="feature-card__desc">
           AI 基于球队实力、历史数据和当前状态，实时更新各队夺冠概率预测。
         </p>
+        <div class="feature-card__stats">
+          <span>🤖 AI 模型</span>
+          <span>📊 数据支持</span>
+        </div>
       </a>
     </div>
   </section>

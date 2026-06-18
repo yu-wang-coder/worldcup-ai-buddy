@@ -15,6 +15,30 @@ const MATCH_TABS = {
   upcoming: () => matchData.getUpcoming(7),
 };
 
+function renderHeroStats() {
+  const statsEl = document.getElementById('hero-stats');
+  if (!statsEl) return;
+
+  statsEl.innerHTML = `
+    <div class="home-hero__stat">
+      <div class="home-hero__stat-value">48</div>
+      <div class="home-hero__stat-label">参赛球队</div>
+    </div>
+    <div class="home-hero__stat">
+      <div class="home-hero__stat-value">64</div>
+      <div class="home-hero__stat-label">精彩比赛</div>
+    </div>
+    <div class="home-hero__stat">
+      <div class="home-hero__stat-value">104</div>
+      <div class="home-hero__stat-label">场次赛期</div>
+    </div>
+    <div class="home-hero__stat">
+      <div class="home-hero__stat-value">3</div>
+      <div class="home-hero__stat-label">主办国家</div>
+    </div>
+  `;
+}
+
 function getTeamFlag(teamName) {
   const flags = {
     阿根廷: '🇦🇷',
@@ -42,6 +66,8 @@ function getTeamFlag(teamName) {
     塞内加尔: '🇸🇳',
     加纳: '🇬🇭',
     厄瓜多尔: '🇪🇨',
+    意大利: '🇮🇹',
+    哥伦比亚: '🇨🇴',
   };
   return flags[teamName] || '⚽';
 }
@@ -66,27 +92,42 @@ function getStageLabel(stage) {
 }
 
 function renderMatchCard(match) {
+  const hasScore = match.homeScore !== undefined && match.awayScore !== undefined;
+  const isLive = match.status === 'live';
+  const statusLabel = match.status === 'finished' ? '已结束' : match.status === 'live' ? '🔴 直播中' : match.status === 'upcoming' ? '即将开始' : '';
+  const statusColor = match.status === 'live' ? '#22c55e' : match.status === 'finished' ? '#64748b' : '#f97316';
+
   return `
     <div class="match-card ${match.isHot ? 'match-card--hot' : ''}" data-match-id="${match.id}">
       <div class="match-card__header">
         <span class="match-card__stage">${getStageLabel(match.stage)}</span>
-        <span>${formatDate(match.dateTime)} ${formatTime(match.dateTime).substring(0, 5)}</span>
+        <span class="match-card__status" style="color: ${statusColor}; font-weight: 600;">${statusLabel || formatDate(match.dateTime)}</span>
       </div>
       <div class="match-card__teams">
         <div class="team-info">
           <div class="team-info__flag">${getTeamFlag(match.homeTeam)}</div>
           <div class="team-info__name">${match.homeTeam}</div>
+          ${hasScore ? `<div class="team-info__score">${match.homeScore}</div>` : '<div class="team-info__rank">主队</div>'}
         </div>
-        <div class="match-card__vs">VS</div>
+        <div class="match-card__vs">
+          ${hasScore ? `<span style="color: #f97316; font-size: 1.2rem;">VS</span>` : 'VS'}
+        </div>
         <div class="team-info">
           <div class="team-info__flag">${getTeamFlag(match.awayTeam)}</div>
           <div class="team-info__name">${match.awayTeam}</div>
+          ${hasScore ? `<div class="team-info__score">${match.awayScore}</div>` : '<div class="team-info__rank">客队</div>'}
         </div>
       </div>
       <div class="match-card__info">
-        <div class="match-card__venue">${match.venue} · ${match.city}</div>
-        ${match.weather ? `<div>天气：${match.weather}</div>` : ''}
+        <div class="match-card__venue">🏟️ ${match.venue} · ${match.city}</div>
+        ${match.weather ? `<div>🌤️ ${match.weather}</div>` : ''}
         ${match.matchPreview ? `<div class="match-card__preview">💡 ${match.matchPreview}</div>` : ''}
+        ${hasScore ? `
+          <div class="match-card__stats">
+            <span>⚽ 进球: ${match.homeScore} - ${match.awayScore}</span>
+            <span>⏱️ ${match.minute || '90'}'</span>
+          </div>
+        ` : ''}
       </div>
     </div>
   `;
@@ -241,6 +282,7 @@ function setupCtaButtons() {
 document.addEventListener('DOMContentLoaded', () => {
   setupCountdown();
   setupMatchTabs();
+  renderHeroStats();
   loadMatches('hot');
   loadPredictions();
   setupCtaButtons();
