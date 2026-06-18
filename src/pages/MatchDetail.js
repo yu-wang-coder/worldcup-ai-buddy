@@ -4,39 +4,15 @@
 
 import { renderHeader, renderFooter } from '../components/Header.js';
 import { matchData, teamData, playerData } from '../api/dataProvider.js';
+import { getTeamByName } from '../data/teams.js';
 
 renderHeader('matches');
 renderFooter();
 
 function getTeamFlag(teamName) {
-  const flags = {
-    阿根廷: '🇦🇷',
-    法国: '🇫🇷',
-    巴西: '🇧🇷',
-    英格兰: '🏴',
-    西班牙: '🇪🇸',
-    德国: '🇩🇪',
-    荷兰: '🇳🇱',
-    葡萄牙: '🇵🇹',
-    乌拉圭: '🇺🇾',
-    比利时: '🇧🇪',
-    克罗地亚: '🇭🇷',
-    摩洛哥: '🇲🇦',
-    日本: '🇯🇵',
-    韩国: '🇰🇷',
-    沙特阿拉伯: '🇸🇦',
-    澳大利亚: '🇦🇺',
-    丹麦: '🇩🇰',
-    塞尔维亚: '🇷🇸',
-    瑞士: '🇨🇭',
-    美国: '🇺🇸',
-    墨西哥: '🇲🇽',
-    加拿大: '🇨🇦',
-    塞内加尔: '🇸🇳',
-    加纳: '🇬🇭',
-    厄瓜多尔: '🇪🇨',
-  };
-  return flags[teamName] || '⚽';
+  const team = getTeamByName(teamName);
+  if (team && team.flag) return team.flag;
+  return '⚽';
 }
 
 function getStageLabel(stage) {
@@ -174,7 +150,13 @@ async function renderMatchDetail(matchId) {
   const container = document.getElementById('match-content');
 
   try {
-    const match = await matchData.getById(matchId);
+    let match = await matchData.getById(matchId);
+    if (!match) {
+      const allMatches = await matchData.getAll();
+      if (allMatches && allMatches.length > 0) {
+        match = allMatches[0];
+      }
+    }
 
     if (!match) {
       container.innerHTML = `
@@ -284,7 +266,7 @@ async function renderMatchDetail(matchId) {
 
 function getMatchIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
-  return params.get('id') || 'match_001';
+  return params.get('id') || 'match_a1';
 }
 
 document.addEventListener('DOMContentLoaded', () => {

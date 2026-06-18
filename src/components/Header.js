@@ -5,7 +5,7 @@
 export function renderHeader(activePage = 'home') {
   const navItems = [
     { id: 'home', label: '首页', href: 'index.html', icon: '🏠' },
-    { id: 'matches', label: '赛事详情', href: 'match-detail.html', icon: '⚽' },
+    { id: 'matches', label: '赛事详情', href: 'match-detail.html?id=match_a1', icon: '⚽' },
     { id: 'chat', label: 'AI 聊天', href: 'chat.html', icon: '🤖' },
     { id: 'highlights', label: '精彩瞬间', href: 'highlights.html', icon: '🎯' },
     { id: 'odds', label: '赔率分析', href: 'odds.html', icon: '📊' },
