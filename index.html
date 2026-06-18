@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 看球搭子 — 2026 世界杯智能观赛助手</title>
+  <meta name="description" content="2026 世界杯智能观赛助手，提供赛事信息、赔率分析、AI 陪聊和精彩瞬间回顾。" />
+  <link rel="stylesheet" href="src/styles/variables.css" />
+  <link rel="stylesheet" href="src/styles/reset.css" />
+  <link rel="stylesheet" href="src/styles/global.css" />
+  <link rel="stylesheet" href="src/styles/home.css" />
+</head>
+<body>
+  <nav class="header" id="app-header"></nav>
+
+  <section class="home-hero">
+    <div class="home-hero-content">
+      <h1 class="home-hero__title">2026 世界杯智能观赛助手</h1>
+      <p class="home-hero__subtitle">
+        你的 AI 看球搭子 · 实时赛事信息 · 智能赔率分析 · 精彩瞬间回顾
+      </p>
+
+      <div class="home-hero__countdown" id="countdown">
+        <div class="countdown-item">
+          <div class="countdown-item__value" id="cd-days">00</div>
+          <div class="countdown-item__label">天</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-item__value" id="cd-hours">00</div>
+          <div class="countdown-item__label">小时</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-item__value" id="cd-minutes">00</div>
+          <div class="countdown-item__label">分钟</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-item__value" id="cd-seconds">00</div>
+          <div class="countdown-item__label">秒</div>
+        </div>
+      </div>
+
+      <div class="home-hero__cta">
+        <button class="btn btn-primary" id="cta-prediction" type="button">
+          查看预测
+        </button>
+        <button class="btn btn-secondary" id="cta-chat" type="button" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3);">
+          开始 AI 聊天
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-features">
+    <h2 class="home-features__title">为什么选择 AI 看球搭子？</h2>
+    <p class="home-features__subtitle">六大核心功能，陪你畅玩 2026 世界杯</p>
+
+    <div class="feature-grid">
+      <a href="match-detail.html" class="feature-card" style="text-decoration: none; color: inherit;">
+        <div class="feature-card__icon">⚽</div>
+        <h3 class="feature-card__title">赛事详情</h3>
+        <p class="feature-card__desc">
+          全面的比赛信息、球队数据、球员资料和历史交锋记录，让你赛前知己知彼。
+        </p>
+      </a>
+
+      <a href="chat.html" class="feature-card" style="text-decoration: none; color: inherit;">
+        <div class="feature-card__icon">🤖</div>
+        <h3 class="feature-card__title">AI 聊天助手</h3>
+        <p class="feature-card__desc">
+          你的专属看球搭子，可以陪聊、预测、回答足球知识问题，让观赛不再孤单。
+        </p>
+      </a>
+
+      <a href="odds.html" class="feature-card" style="text-decoration: none; color: inherit;">
+        <div class="feature-card__icon">📊</div>
+        <h3 class="feature-card__title">赔率分析</h3>
+        <p class="feature-card__desc">
+          多平台赔率对比、历史走势图、AI 概率预测，帮助你做出更理性的判断。
+        </p>
+      </a>
+
+      <a href="highlights.html" class="feature-card" style="text-decoration: none; color: inherit;">
+        <div class="feature-card__icon">🎯</div>
+        <h3 class="feature-card__title">精彩瞬间</h3>
+        <p class="feature-card__desc">
+          回顾世界杯历史上的经典进球和高光时刻，感受足球的魅力与激情。
+        </p>
+      </a>
+
+      <a href="cartoon.html" class="feature-card" style="text-decoration: none; color: inherit;">
+        <div class="feature-card__icon">📖</div>
+        <h3 class="feature-card__title">足球科普</h3>
+        <p class="feature-card__desc">
+          卡通化的足球知识科普，从规则到球星，让新手也能轻松看懂世界杯。
+        </p>
+      </a>
+
+      <a href="odds.html" class="feature-card" style="text-decoration: none; color: inherit;">
+        <div class="feature-card__icon">🏆</div>
+        <h3 class="feature-card__title">夺冠预测</h3>
+        <p class="feature-card__desc">
+          AI 基于球队实力、历史数据和当前状态，实时更新各队夺冠概率预测。
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <section class="home-matches">
+    <div class="home-matches__inner">
+      <div class="home-matches__header">
+        <h2 class="home-matches__title">🔥 热门赛事</h2>
+        <div class="home-tabs" id="match-tabs">
+          <button class="home-tab home-tab--active" data-tab="hot" type="button">精选</button>
+          <button class="home-tab" data-tab="today" type="button">今日</button>
+          <button class="home-tab" data-tab="upcoming" type="button">未来一周</button>
+        </div>
+      </div>
+
+      <div class="match-grid" id="match-list">
+        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #64748b;">
+          正在加载比赛信息...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-ai-prediction">
+    <div class="home-ai-prediction__inner">
+      <h2 class="home-ai-prediction__title">🤖 AI 夺冠概率预测</h2>
+      <p class="home-ai-prediction__subtitle">
+        基于球队实力、历史数据和实时状态，AI 实时更新各队夺冠概率
+      </p>
+
+      <div class="prediction-grid" id="prediction-grid">
+        <div style="grid-column: 1 / -1; color: rgba(255,255,255,0.7); text-align: center; padding: 2rem;">
+          正在加载预测数据...
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="cta-odds-detail" type="button">
+        查看完整赔率分析 →
+      </button>
+    </div>
+  </section>
+
+  <footer class="footer" id="app-footer"></footer>
+
+  <script type="module" src="src/pages/Home.js"></script>
+</body>
+</html>

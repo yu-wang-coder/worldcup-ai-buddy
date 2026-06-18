@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>足球科普 — AI 看球搭子</title>
+  <meta name="description" content="足球科普知识：规则、历史、战术，从入门到精通。" />
+  <link rel="stylesheet" href="src/styles/variables.css" />
+  <link rel="stylesheet" href="src/styles/reset.css" />
+  <link rel="stylesheet" href="src/styles/global.css" />
+  <link rel="stylesheet" href="src/styles/cartoon.css" />
+</head>
+<body>
+  <nav class="header" id="app-header"></nav>
+
+  <main class="cartoon-page">
+    <div class="page-header">
+      <h1>📖 足球科普</h1>
+      <p>从入门到精通，系统学习足球知识</p>
+    </div>
+
+    <div class="cartoon-intro">
+      <h2>🎓 欢迎来到足球科普课堂！</h2>
+      <p>
+        无论你是第一次看世界杯的新球迷，还是想要系统梳理足球知识的老球迷，
+        这里都能找到你需要的内容。点击下方的卡片，了解更多足球知识！
+      </p>
+      <p style="margin-top: 0.75rem;">
+        🎯 内容涵盖：基础规则 · 比赛阵型 · 球员位置 · 裁判手势 · 历史趣闻 · 战术解析
+      </p>
+    </div>
+
+    <div class="cartoon-grid" id="cartoon-grid">
+      <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #64748b;">
+        正在加载科普内容...
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="app-footer"></footer>
+
+  <script type="module" src="src/pages/Cartoon.js"></script>
+</body>
+</html>

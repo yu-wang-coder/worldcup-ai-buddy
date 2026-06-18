@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>赔率分析 — AI 看球搭子</title>
+  <meta name="description" content="2026 世界杯赔率分析，各平台对比、概率走势一目了然。" />
+  <link rel="stylesheet" href="src/styles/variables.css" />
+  <link rel="stylesheet" href="src/styles/reset.css" />
+  <link rel="stylesheet" href="src/styles/global.css" />
+  <link rel="stylesheet" href="src/styles/odds.css" />
+</head>
+<body>
+  <nav class="header" id="app-header"></nav>
+
+  <main class="odds-page">
+    <div class="page-header">
+      <h1>📊 赔率分析</h1>
+      <p>实时数据 · AI 智能分析 · 各平台对比</p>
+    </div>
+
+    <div class="odds-overview" id="odds-overview"></div>
+
+    <div class="odds-section">
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">🏆 世界杯冠军赔率</h2>
+      <div id="winner-odds-table">
+        <p style="color: #64748b; text-align: center; padding: 2rem;">正在加载...</p>
+      </div>
+    </div>
+
+    <div class="odds-section">
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">⚡ 热门比赛赔率</h2>
+      <div id="match-odds-table">
+        <p style="color: #64748b; text-align: center; padding: 2rem;">正在加载...</p>
+      </div>
+    </div>
+
+    <div class="odds-section">
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">📈 概率趋势</h2>
+      <div id="trend-chart">
+        <p style="color: #64748b; text-align: center; padding: 2rem;">正在加载...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="app-footer"></footer>
+
+  <script type="module" src="src/pages/Odds.js"></script>
+</body>
+</html>
