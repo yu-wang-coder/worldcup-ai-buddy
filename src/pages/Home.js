@@ -12,7 +12,7 @@ import {
   DATA_INFO,
   GROUP_SUMMARY,
 } from '../data/matches.js';
-import { TEAMS_META } from '../data/teams.js';
+import { TEAMS_META, getTeamByName } from '../data/teams.js';
 
 renderHeader('home');
 renderFooter();
@@ -61,54 +61,9 @@ function renderDataSource() {
 }
 
 function getTeamFlag(teamName) {
-  const flags = {
-    阿根廷: '🇦🇷',
-    法国: '🇫🇷',
-    巴西: '🇧🇷',
-    英格兰: '🏴',
-    西班牙: '🇪🇸',
-    德国: '🇩🇪',
-    荷兰: '🇳🇱',
-    葡萄牙: '🇵🇹',
-    乌拉圭: '🇺🇾',
-    比利时: '🇧🇪',
-    克罗地亚: '🇭🇷',
-    摩洛哥: '🇲🇦',
-    日本: '🇯🇵',
-    韩国: '🇰🇷',
-    沙特阿拉伯: '🇸🇦',
-    澳大利亚: '🇦🇺',
-    瑞士: '🇨🇭',
-    美国: '🇺🇸',
-    墨西哥: '🇲🇽',
-    加拿大: '🇨🇦',
-    塞内加尔: '🇸🇳',
-    加纳: '🇬🇭',
-    厄瓜多尔: '🇪🇨',
-    哥伦比亚: '🇨🇴',
-    南非: '🇿🇦',
-    捷克: '🇨🇿',
-    波黑: '🇧🇦',
-    卡塔尔: '🇶🇦',
-    海地: '🇭🇹',
-    苏格兰: '🏴',
-    巴拉圭: '🇵🇾',
-    土耳其: '🇹🇷',
-    库拉索: '🇨🇼',
-    科特迪瓦: '🇨🇮',
-    突尼斯: '🇹🇳',
-    埃及: '🇪🇬',
-    伊朗: '🇮🇷',
-    新西兰: '🇳🇿',
-    佛得角: '🇨🇻',
-    挪威: '🇳🇴',
-    阿尔及利亚: '🇩🇿',
-    奥地利: '🇦🇹',
-    约旦: '🇯🇴',
-    乌兹别克斯坦: '🇺🇿',
-    巴拿马: '🇵🇦',
-  };
-  return flags[teamName] || '⚽';
+  const team = getTeamByName(teamName);
+  if (team && team.flag) return team.flag;
+  return '⚽';
 }
 
 function getStageLabel(stage) {
@@ -172,13 +127,17 @@ function renderMatchCard(match) {
         <div class="team-info">
           <div class="team-info__flag">${getTeamFlag(match.homeTeam)}</div>
           <div class="team-info__name">${match.homeTeam}</div>
-          ${hasScore ? `<div class="team-info__score">${match.homeScore}</div>` : '<div class="team-info__rank">VS</div>'}
         </div>
-        <div class="match-card__vs" style="width: 40px; text-align: center; color: #94a3b8;">—</div>
+        <div class="match-card__vs">
+          ${
+            hasScore
+              ? `<div class="match-card__score">${match.homeScore} : ${match.awayScore}</div>`
+              : `<div class="match-card__vs-label">VS</div>`
+          }
+        </div>
         <div class="team-info">
           <div class="team-info__flag">${getTeamFlag(match.awayTeam)}</div>
           <div class="team-info__name">${match.awayTeam}</div>
-          ${hasScore ? `<div class="team-info__score">${match.awayScore}</div>` : '<div class="team-info__rank">—</div>'}
         </div>
       </div>
       <div class="match-card__info">
