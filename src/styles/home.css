@@ -358,20 +358,6 @@
 .match-card--hot {
   border: 2px solid #f97316;
   position: relative;
-  overflow: hidden;
-}
-
-.match-card--hot::before {
-  content: '🔥 热门';
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: linear-gradient(135deg, #f97316, #ef4444);
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 100px;
-  font-size: 0.75rem;
-  font-weight: 600;
 }
 
 .match-card__header {
@@ -381,11 +367,29 @@
   margin-bottom: 1rem;
   font-size: 0.875rem;
   color: #64748b;
+  gap: 0.5rem;
+}
+
+.match-card__header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.match-card__hot-tag {
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  color: white;
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .match-card__stage {
   font-weight: 600;
   color: #f97316;
+  white-space: nowrap;
 }
 
 .match-card__teams {

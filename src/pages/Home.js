@@ -121,7 +121,10 @@ function renderMatchCard(match) {
     <div class="match-card ${match.isHot ? 'match-card--hot' : ''}" data-match-id="${match.id}">
       <div class="match-card__header">
         <span class="match-card__stage">${getStageLabel(match.stage)}</span>
-        <span class="match-card__status" style="color: ${statusColor}; font-weight: 600;">${statusLabel}</span>
+        <div class="match-card__header-right">
+          ${match.isHot ? `<span class="match-card__hot-tag">🔥 热门</span>` : ''}
+          <span class="match-card__status" style="color: ${statusColor}; font-weight: 600;">${statusLabel}</span>
+        </div>
       </div>
       <div class="match-card__teams">
         <div class="team-info">
